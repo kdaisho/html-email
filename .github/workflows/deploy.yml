@@ -1,0 +1,27 @@
+name: Email template CI
+run-name: Push latest commit by ${{ github.actor }}
+
+on:
+    push:
+        branches: [main]
+
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
+
+jobs:
+    deploy:
+        runs-on: self-hosted
+
+        strategy:
+            matrix:
+                node-version: [18.x]
+
+        steps:
+            - uses: actions/checkout@v3
+            - name: Use Node.js ${{ matrix.node-version }}
+                uses: actions/setup-node@v3
+                with:
+                    node-version: ${{ matrix.node-version }}
+                    cache: "npm"
+            - run: npm ci
+            - run: npm run push:ci
