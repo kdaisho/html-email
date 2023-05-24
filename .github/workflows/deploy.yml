@@ -1,4 +1,4 @@
-name: HTML Email CI
+name: HTML Email Postmark CI
 
 on:
     push:
@@ -20,4 +20,4 @@ jobs:
                   node-version: ${{ matrix.node-version }}
                   cache: "npm"
             - run: npm ci
-            - run: npm run push:ci
+            - run: POSTMARK_SERVER_TOKEN=${{ secrets.POSTMARK_SERVER_TOKEN }} npm run push:ci
