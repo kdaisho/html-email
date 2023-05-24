@@ -5,6 +5,7 @@
     "scripts": {
         "pull": "postmark templates pull ./templates",
         "push": "postmark templates push ./templates",
+        "push:ci": "postmark templates push ./templates -f",
         "dev": "postmark templates preview ./"
     },
     "keywords": [],
