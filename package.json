@@ -1,0 +1,15 @@
+{
+    "name": "html-email",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "pull": "npx postmark templates pull ~/code/html-email/templates"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "postmark-cli": "^1.6.16"
+    }
+}

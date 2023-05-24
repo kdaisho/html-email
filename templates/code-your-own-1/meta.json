@@ -1,0 +1,8 @@
+{
+  "Name": "Single table layout",
+  "Alias": "code-your-own-1",
+  "Subject": "This is a test email for single table layout",
+  "TemplateType": "Standard",
+  "LayoutTemplate": "code-your-own",
+  "TestRenderModel": {}
+}
