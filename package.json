@@ -1,13 +1,14 @@
 {
     "name": "html-email",
     "version": "1.0.0",
-    "description": "",
-    "main": "index.js",
+    "description": "HTML email templates for Postmark",
     "scripts": {
-        "pull": "npx postmark templates pull ~/code/html-email/templates"
+        "pull": "postmark templates pull ./templates",
+        "push": "postmark templates push ./templates",
+        "dev": "postmark templates preview ./"
     },
     "keywords": [],
-    "author": "",
+    "author": "daishokomiyama@gmail.com",
     "license": "ISC",
     "dependencies": {
         "postmark-cli": "^1.6.16"
