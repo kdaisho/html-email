@@ -1,27 +1,25 @@
-name: Node.js CI
+name: HTML Email CI
 
 on:
-    push:
-        branches: [main]
-
-    # Allows you to run this workflow manually from the Actions tab
-    # workflow_dispatch:
+  push:
+    branches: [main]
 
 jobs:
-    build:
-        runs-on: ubuntu-latest
+  build:
 
-        strategy:
-            matrix:
-                node-version: [18.x]
-                # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+    runs-on: ubuntu-latest
 
-        steps:
-            - uses: actions/checkout@v3
-            - name: Use Node.js ${{ matrix.node-version }}
-                uses: actions/setup-node@v3
-                with:
-                    node-version: ${{ matrix.node-version }}
-                    cache: "npm"
-            - run: npm ci
-            - run: npm run push:ci
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm test
+    - run: npm run push:ci
